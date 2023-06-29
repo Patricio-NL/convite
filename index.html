@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-size: 36px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h2 {
+      font-size: 48px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 36px;
+      color: blue;
+      background-color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Ei, fica comigo?</h2>
+    <button id="sim" class="btn">Sim</button>
+    <button id="nao" class="btn">Não</button>
+  </div>
+
+  <script>
+    const naoButton = document.getElementById("nao");
+    const container = document.querySelector(".container");
+
+    naoButton.addEventListener("click", () => {
+      const randomX = Math.floor(Math.random() * (window.innerWidth - naoButton.offsetWidth));
+      const randomY = Math.floor(Math.random() * (window.innerHeight - naoButton.offsetHeight));
+      
+      naoButton.style.left = randomX + "px";
+      naoButton.style.top = randomY + "px";
+      naoButton.style.position = "absolute";
+    });
+
+    document.getElementById("sim").addEventListener("click", () => {
+      window.location.href = "conf.html";
+    });
+  </script>
+</body>
+</html>
